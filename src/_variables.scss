@@ -1,0 +1,39 @@
+/*********************************
+ ** Mixins
+ ********************************/
+@mixin responsive($class) {
+  @if $class==mobile {
+    @media (max-width: 730px) {
+      @content;
+    }
+  } @else if $class==tablet {
+    //tablet
+    @media (min-width: 731px) and (max-width: 1099px) {
+      @content;
+    }
+  } @else if $class==desktop {
+    //desktop
+    @media (min-width: 1100px) {
+      @content;
+    }
+  } @else if $class==mobile-tablet {
+    //mobile and tablet
+    @media (max-width: 1099px) {
+      @content;
+    }
+  } @else {
+    @warn "responsive mixin supports: mobile, md, lg";
+  }
+}
+
+/*********************************
+ ** Global Styling
+ ********************************/
+
+html {
+  position: relative;
+}
+
+.danger{
+  color: red;
+}

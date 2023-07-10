@@ -1,0 +1,4 @@
+230710181333341533,ERROR:  invalid input syntax for type uuid: "2023-03-20"
+
+230710181333341674,CONTEXT:  COPY value_over_time, line 2, column security_id: "2023-03-20"
+

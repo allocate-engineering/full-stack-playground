@@ -1,0 +1,11 @@
+name: vue-sandbox
+
+windows:
+  - main:
+      root: ./
+      layout: 8f4e,237x70,0,0{130x70,0,0,19,106x70,131,0[106x34,131,0,21,106x35,131,35,22]}
+      panes:
+        - 
+        - yarn && yarn serve
+        - 
+ #- logs: tail -f log/development.log

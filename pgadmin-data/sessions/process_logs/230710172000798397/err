@@ -1,0 +1,4 @@
+230710172001023822,ERROR:  value "3044579400" is out of range for type integer
+
+230710172001023921,CONTEXT:  COPY value_over_time, line 175, column volume: "3044579400"
+

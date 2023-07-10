@@ -1,0 +1,28 @@
+{
+  "name": "vue-sandbox",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite dev",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.3.4",
+    "chart.js": "^4.2.1",
+    "firebase": "^8.6.2",
+    "pinia": "^2.0.22",
+    "postcss": "^8.4.21",
+    "sanitize.css": "^12.0.1",
+    "vue": "^3.0.10",
+    "vue-router": "^4.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.1.4",
+    "@vue/compiler-sfc": "^3.0.10",
+    "sass": "^1.32.8",
+    "vite": "^2.0.1",
+    "vitest": "^0.12.6"
+  }
+}

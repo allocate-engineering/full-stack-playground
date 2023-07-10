@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "SE5MlS6fnwch7jzQjXqSH2jsYRgItSqvFdQMDBrEoQA=",
+  "Source": "Allocate.Web.DemoApi",
+  "BasePath": "_content/Allocate.Web.DemoApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
