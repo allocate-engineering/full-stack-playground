@@ -3,6 +3,7 @@
     <div id="modal-target"></div>
     <header>
       <div>Prestige Financial Solutions</div>
+      <button v-if="mainStore.currentUser" @click="logout">Logout</button>
     </header>
     
     <div id="sign-in-area"></div>
@@ -35,8 +36,20 @@
     name: "App",
     setup(){
       const mainStore = useMainStore();
+
+      function logout(){
+        mainStore.globalLoading = true;
+        firebase.auth().signOut().then(() => {
+          mainStore.globalLoading = false;
+        }).catch((error) => {
+          mainStore.globalLoading = false;
+          console.log(error);
+        });
+      }
+
       return {
-        mainStore
+        mainStore,
+        logout
       }
     },
     components: {
@@ -60,7 +73,7 @@
       setTimeout(() => {
         this.mainStore.globalLoading = false;
       }, 5000);
-    }
+    },
   };
 </script>
 
@@ -139,6 +152,8 @@
     header {
       display: flex;
       align-self: flex-start;
+      align-items: center;
+      justify-content: space-between;
       color: #07a4ff;
       font-size: 48px;
       background-color: #202a37;
