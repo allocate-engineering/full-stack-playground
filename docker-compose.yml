@@ -7,7 +7,7 @@ networks:
 services:
   allocate-interview-demo:
     ports:
-      - 5000:5000
+      - 5001:5001
     depends_on:
       postgres:
         condition: service_healthy

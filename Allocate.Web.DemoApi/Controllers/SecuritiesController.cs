@@ -15,15 +15,15 @@ public class SecuritiesController : OurControllerBase
         _genericRepository = genericRepository;
     }
 
-    [HttpGet]
-    public Security GetSecurity(string tickerSymbol)
+    [HttpGet("{tickerSymbol}")]
+    public Security GetSecurity([FromRoute] string tickerSymbol)
     {
         Security result = _genericRepository.GetByStringKey<Security>("TickerSymbol", tickerSymbol).First();
         return result;
     }
 
-    [HttpGet("")]
-    public IEnumerable<ValueOverTime> GetValueOverTimeForSecurity(string tickerSymbol)
+    [HttpGet("{tickerSymbol}/ValueOverTime")]
+    public IEnumerable<ValueOverTime> GetValueOverTimeForSecurity([FromRoute] string tickerSymbol)
     {
         Security result = _genericRepository.GetByStringKey<Security>("TickerSymbol", tickerSymbol).First();
         var results = _genericRepository.GetByOtherGuid<ValueOverTime>("SecurityId", result.Id);
