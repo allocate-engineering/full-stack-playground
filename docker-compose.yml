@@ -33,8 +33,6 @@ services:
       allocate-demo:
         aliases:
           - postgres.local.allocate.build
-    volumes:
-      - ./datafiles/postgres-data:/var/lib/postgresql/data
     command: postgres -c shared_preload_libraries=pg_stat_statements -c pg_stat_statements.track=all -c pg_stat_statements.max=10000 -c max_connections=200
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
@@ -52,5 +50,3 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: demo@allocate.co
       PGADMIN_DEFAULT_PASSWORD: L0ck3dD0wn!
-    volumes:
-      - ./datafiles/pgadmin-data:/var/lib/pgadmin
