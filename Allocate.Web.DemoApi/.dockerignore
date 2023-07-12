@@ -1,8 +1,0 @@
-# https://github.com/dotnet/dotnet-docker/blob/master/.dockerignore
-**/bin
-**/obj
-**/out
-**/.vscode
-**/.vs
-.dotnet
-.Microsoft.DotNet.ImageBuilder

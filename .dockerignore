@@ -1,2 +1,9 @@
 **/node_modules
 datafiles/pgadmin-data
+**/bin
+**/obj
+**/out
+**/.vscode
+**/.vs
+.dotnet
+.Microsoft.DotNet.ImageBuilder
