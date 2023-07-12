@@ -6,6 +6,8 @@ dist-ssr
 *.un~
 *.swp
 api/inbox
+**/bin
+**/obj
 
 backstop_data
 coverage
