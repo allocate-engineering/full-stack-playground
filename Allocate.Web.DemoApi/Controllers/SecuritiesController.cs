@@ -1,10 +1,6 @@
-﻿using System.Security.Permissions;
-
-using Allocate.Common.Database.Repositories;
-using Allocate.Common.Database.Services;
+﻿using Allocate.Common.Database.Repositories;
 using Allocate.Web.DemoApi.DataModels;
 
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Allocate.Web.DemoApi.Controllers;
@@ -24,5 +20,13 @@ public class SecuritiesController : OurControllerBase
     {
         Security result = _genericRepository.GetByStringKey<Security>("TickerSymbol", tickerSymbol).First();
         return result;
+    }
+
+    [HttpGet("")]
+    public IEnumerable<ValueOverTime> GetValueOverTimeForSecurity(string tickerSymbol)
+    {
+        Security result = _genericRepository.GetByStringKey<Security>("TickerSymbol", tickerSymbol).First();
+        var results = _genericRepository.GetByOtherGuid<ValueOverTime>("SecurityId", result.Id);
+        return results;
     }
 }

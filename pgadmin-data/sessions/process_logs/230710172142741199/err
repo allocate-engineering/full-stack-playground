@@ -1,6 +1,0 @@
-230710172142873926,ERROR:  syntax error at or near "OIDS"
-
-230710172142874024,LINE 1: ...igh_amt, low_amt, close_amt, volume ) FROM STDIN  OIDS  DELI...
-
-230710172142874046,                                                             ^
-

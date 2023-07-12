@@ -1,0 +1,27 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0-focal
+EXPOSE 80
+
+ARG CI_COMMIT_SHA
+ARG CI_COMMIT_SHORT_SHA
+ENV TZ=America/New_York
+
+WORKDIR /app
+
+# build the api
+COPY . .
+RUN dotnet publish ./Allocate.Web.DemoApi.csproj -c Release -o out
+
+# Create a version file
+RUN echo "{\"version\":\"$CI_COMMIT_SHORT_SHA\", \"commitSha1\":\"$CI_COMMIT_SHA\", \"built\":\"$(date '+%Y-%m-%d %T')\"}" > /app/version
+
+# FROM registry.gitlab.com/allocate.co/allocate-web-api/allocate-web-api-base as runtime
+WORKDIR /app
+
+# Copy the build assets to the WORKDIR folder
+# COPY --from=build \
+#     /app/out \
+#     /app/version \
+#     /app/Allocate.Web.DemoApi/run-container.sh \
+#     ./
+
+ENTRYPOINT ["./run-container.sh"]

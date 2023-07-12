@@ -5,27 +5,25 @@ networks:
     driver: bridge
 
 services:
-  # allocate-interview-demo:
-  #   ports:
-  #     - 5001:5001
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
-  #     pgadmin:
-  #       condition: service_healthy
-  #   networks:
-  #     allocate-demo:
-  #       aliases:
-  #         - demo.api.local.allocate.build
-  #   volumes:
-  #     # Map local directory to a directory in the docker container, in read-only mode
-  #     - ./docker-compose-certs:/docker-compose-certs:ro
-  #   image: allocate-interview-demo:latest
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.DemoApi
-  #   environment:
-  #     - DOTNET_ENVIRONMENT
+  allocate-interview-demo:
+    ports:
+      - 5000:5000
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      allocate-demo:
+        aliases:
+          - demo.api.local.allocate.build
+    volumes:
+      # Map local directory to a directory in the docker container, in read-only mode
+      - ./docker-compose-certs:/docker-compose-certs:ro
+    image: allocate-interview-demo:latest
+    build:
+      context: ./Allocate.Web.DemoApi
+      dockerfile: Dockerfile.DemoAPI
+    environment:
+      - DOTNET_ENVIRONMENT=Development
 
   postgres:
     image: postgres:14
@@ -36,7 +34,7 @@ services:
         aliases:
           - postgres.local.allocate.build
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./datafiles/postgres-data:/var/lib/postgresql/data
     command: postgres -c shared_preload_libraries=pg_stat_statements -c pg_stat_statements.track=all -c pg_stat_statements.max=10000 -c max_connections=200
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
@@ -49,14 +47,10 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin4_container
-    restart: always
     ports:
       - "8888:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: demo@allocate.co
       PGADMIN_DEFAULT_PASSWORD: L0ck3dD0wn!
     volumes:
-      - ./pgadmin-data:/var/lib/pgadmin
-
-volumes:
-  postgres-data:
+      - ./datafiles/pgadmin-data:/var/lib/pgadmin

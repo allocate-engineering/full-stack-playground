@@ -51,5 +51,5 @@ echo "##################################################"
 
 echo "DOTNET_ENVIRONMENT: $DOTNET_ENVIRONMENT"
 
-dotnet "Allocate.Web.DemoApi.dll"
+dotnet "/app/out/Allocate.Web.DemoApi.dll"
 
