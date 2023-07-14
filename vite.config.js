@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import fs from 'fs';
 
 const path = require("path");
 
@@ -21,6 +22,13 @@ export default defineConfig({
     },
   },
   server: {
+    open: false,
+    host: "0.0.0.0", // open up to all connections, but we reach it at local.allocate.build
+    port: 3000,
+    https: {
+      key: fs.readFileSync("localcert.key"),
+      cert: fs.readFileSync("localcert.pem")
+    },
     watch: {
       usePolling: true,
     },

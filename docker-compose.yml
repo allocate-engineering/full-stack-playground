@@ -23,7 +23,7 @@ services:
       context: ./Allocate.Web.DemoApi
       dockerfile: Dockerfile.DemoAPI
     environment:
-      - DOTNET_ENVIRONMENT=Development
+      - DOTNET_ENVIRONMENT=Local
 
   postgres:
     image: postgres:14
