@@ -32,5 +32,11 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
+    proxy: {
+        '/api': {
+           target: 'https://local.allocate.build:5001'
+           ,rewrite: (path) => path.replace(/^\/api/, ''),
+        }
+    }
   },
 });
