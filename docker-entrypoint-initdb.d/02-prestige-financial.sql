@@ -86,7 +86,7 @@ ALTER TABLE public."ValueOverTime" OWNER TO postgres;
 --
 
 INSERT INTO public."Security" ("Id", "Name", "LogoUrl", "TickerSymbol") VALUES ('d64ee52a-a428-42de-85c2-229c710fc2f7', 'Microsoft Corporation', 'https://financialmodelingprep.com/image-stock/MSFT.png', 'MSFT');
-INSERT INTO public."Security" ("Id", "Name", "LogoUrl", "TickerSymbol") VALUES ('dd7ab3fc-f2c5-41a6-8855-1e7df3aff202', 'Apple Computer Inc.', NULL, 'APPL');
+INSERT INTO public."Security" ("Id", "Name", "LogoUrl", "TickerSymbol") VALUES ('dd7ab3fc-f2c5-41a6-8855-1e7df3aff202', 'Apple Computer Inc.', NULL, 'AAPL');
 
 
 --
